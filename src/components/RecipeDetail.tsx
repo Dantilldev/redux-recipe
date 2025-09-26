@@ -30,25 +30,6 @@ function RecipeDetail() {
         <p>
           <strong>Meal Type:</strong> {recipe.mealType.join(", ")}
         </p>
-        <p>
-          <strong>Ingredients:</strong>
-        </p>
-        <ul>
-          {recipe.ingredients.map((ing, index) => (
-            <li key={index}>{ing}</li>
-          ))}
-        </ul>
-        <p>
-          <strong>Instructions:</strong>
-        </p>
-        <ol>
-          {recipe.instructions.map((instruction, index) => (
-            <li key={index}>
-              <p>{index + 1}.</p>
-              {instruction}
-            </li>
-          ))}
-        </ol>
       </div>
     </div>
   );

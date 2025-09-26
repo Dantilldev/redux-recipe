@@ -19,4 +19,5 @@ export interface Recipe {
 
 export interface RecipeSearchResponse {
   recipes: Recipe[];
+  limit: number;
 }

@@ -2,6 +2,7 @@ import {configureStore} from "@reduxjs/toolkit";
 import favoritesReducer from "../features/favorites/favoritesSlice";
 import {recipesApi} from "../features/recipes/rescipesApi";
 
+// Använder localStorage i store  för att låta favoriteSlice pure och clean, setItem i komponenten.
 const saved = localStorage.getItem("favorites");
 const preloadedState = {
   favorites: {items: saved ? JSON.parse(saved) : []},

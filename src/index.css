@@ -1,25 +1,16 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
+  color: white;
 }
 a:hover {
-  color: #535bf2;
+  color: skyblue;
 }
 
 body {
@@ -28,60 +19,56 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: antiquewhite;
+  background-color: #4f4d4d;
+}
+
+input {
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #fefefe;
+}
+h2 {
+  color: #fefefe;
 }
 
 ul {
   list-style-type: none;
-  margin-bottom: 10px;
-  grid-gap: 30px;
+  grid-gap: 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding-left: 0;
 }
-
-li {
-  background-color: #9addcd;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.card:hover {
+  scale: 1.05;
+  transition: all 0.5s;
 }
-
 button {
-  border: 1px solid;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.5s;
+  border: 2px solid #242424;
 }
 button:hover {
-  border-color: #646cff;
+  opacity: 0.9;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.card {
+  background-color: #361e29;
+  padding-top: 10px;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (max-width: 1025px) {

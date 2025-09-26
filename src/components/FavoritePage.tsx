@@ -17,14 +17,19 @@ function FavoritesPage() {
       <ul>
         {favorites.map((f) => (
           <li key={f.id}>
-            <Link to={`/recipe/${f.id}`}>
-              <strong>{f.title}</strong> ({f.cuisine}, {f.difficulty},{" "}
-              {f.mealType})
-              <img src={f.image} alt={f.title} width={100} />
-            </Link>
-            <button onClick={() => dispatch(removeFavorite(f.id))}>
-              Remove
-            </button>
+            <div className="card">
+              <Link to={`/recipe/${f.id}`}>
+                <strong>{f.title}</strong> ({f.cuisine}, {f.difficulty},{" "}
+                {f.mealType})
+                <img src={f.image} alt={f.title} width={250} />
+              </Link>
+              <button
+                style={{backgroundColor: "red", color: "white"}}
+                onClick={() => dispatch(removeFavorite(f.id))}
+              >
+                Remove
+              </button>
+            </div>
           </li>
         ))}
       </ul>

@@ -12,7 +12,10 @@ function Home() {
   const favorites = useAppSelector((state) => state.favorites.items);
   const dispatch = useAppDispatch();
   const [query, setQuery] = useState("");
-  const {data, isFetching, isError, error} = useSearchRecipesQuery({q: query});
+  const {data, isFetching, isError, error} = useSearchRecipesQuery({
+    q: query,
+    limit: 50,
+  });
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -21,15 +24,23 @@ function Home() {
   function isFavorite(id: number) {
     return favorites.some((item) => item.id === id);
   }
-
   return (
     <div>
-      <input
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search recipes..."
-      />{" "}
-      <Link to="/favorites">Show favorites ({favorites.length})</Link>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "40px",
+        }}
+      >
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search recipes..."
+        />{" "}
+        <Link to="/favorites">Show favorites ({favorites.length})</Link>
+      </div>
       {isFetching && <p>Loading...</p>}
       {isError && (
         <p style={{color: "red"}}>
@@ -40,36 +51,40 @@ function Home() {
       <ul>
         {data?.recipes.map((recipe) => (
           <li key={recipe.id}>
-            <div
-              style={{
-                height: "100%",
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
-            >
-              <Link to={`/recipe/${recipe.id}`}>
-                <strong>{recipe.name}</strong> ({recipe.cuisine},{" "}
-                {recipe.difficulty}, {recipe.mealType}),{" "}
-              </Link>
-
+            <div className="card">
               <a
                 href={`https://dummyjson.com/recipes/${recipe.id}`}
                 target="_blank"
-                rel="noopener noreferrer"
               >
-                Show JSON
+                --&gt; JSON &lt;--
               </a>
-              <div style={{textAlign: "center", marginBottom: "10px"}}>
-                <img src={recipe.image} alt={recipe.name} width={250} />
-              </div>
+              <Link to={`/recipe/${recipe.id}`}>
+                <div style={{textAlign: "center"}}>
+                  <img src={recipe.image} alt={recipe.name} width={250} />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <strong>{recipe.name}</strong>{" "}
+                  <small style={{color: "#ccc"}}>
+                    ({recipe.cuisine}, {recipe.difficulty}, {recipe.mealType}){" "}
+                  </small>
+                </div>
+              </Link>
               {isFavorite(recipe.id) ? (
-                <button onClick={() => dispatch(removeFavorite(recipe.id))}>
+                <button
+                  style={{backgroundColor: "red", color: "white"}}
+                  onClick={() => dispatch(removeFavorite(recipe.id))}
+                >
                   Remove from favorites
                 </button>
               ) : (
                 <button
+                  style={{backgroundColor: "green", color: "white"}}
                   onClick={() =>
                     dispatch(
                       addFavorite({
