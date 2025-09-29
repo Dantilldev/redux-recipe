@@ -21,6 +21,7 @@ Du kan klicka på ett specifikt recept för att se dess detaljer (övning i Rout
 - **Debounce**: Skriv en enkel useDebounce hook för sökinput (t.ex. 300 ms) för bättre UX.
 - **Bättre felhantering**: Visa "försök igen"knapp vid fetch fel.
 - **Extra UI/UX**: Lägg till skeleton loader med animation, förbättra mobilvänlighet ytterligare.
+- **Responsivitet i detaljsidan**: Lägg till bättre responsivitet för RecipeDetail komponenten.
 
 ## Starta projektet
 
