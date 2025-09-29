@@ -1,73 +1,46 @@
-# React + TypeScript + Vite
+# Redux Recipe Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En liten app där du kan söka recept via ett öppet API och spara favoriter i Redux.
+Du kan klicka på ett specifikt recept för att se dess detaljer (övning i Routing).
 
-Currently, two official plugins are available:
+## Funktioner som är klara
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Redux Toolkit**: Store konfigurerad med configureStore och typade RootState/AppDispatch.
+- **Favorites Slice**: createSlice med typade actions (add, remove, clear) och state.
+- **RTK Query**: Typade queries för att söka och hämta recept från https://dummyjson.com/docs/recipes.
+- **React-Redux**: Provider, useSelector, useDispatch används medtyper.
+- **Projektstruktur**: Delad i app, features, types.
+- **Persistens**: Favoriter sparas i localStorage och laddas vid uppstart.
+- **UI**: Sökfält, lista med recept, favoriter, detaljsida för recept, länk till JSON data.
+- **Routing**: React Router för Home, Favoriter och RecipeDetail.
+- **Responsivitet**: Home, Favoriter och RecipeDetail är responsiva med enkel CSS.
 
-## React Compiler
+## Kvar att göra / Möjliga förbättringar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Filter/sort**: Skapa selectors som sorterar alfabetiskt eller filtrerar efter cuisine/difficulty.
+- **Debounce**: Skriv en enkel useDebounce hook för sökinput (t.ex. 300 ms) för bättre UX.
+- **Bättre felhantering**: Visa "försök igen"knapp vid fetch fel.
+- **Extra UI/UX**: Lägg till skeleton loader med animation, förbättra mobilvänlighet ytterligare.
 
-## Expanding the ESLint configuration
+## Starta projektet
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- React + Vite (TypeScript)
+- Redux Toolkit
+- RTK Query
+- React Redux
+- React Router
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## API
+
+DummyJSON Recipes: https://dummyjson.com/docs/recipes
+
+---
+
+_workshop @Chas academy._
