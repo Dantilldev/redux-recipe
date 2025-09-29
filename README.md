@@ -1,4 +1,4 @@
-# Redux Recipe Explorer
+# Redux Recipe
 
 En liten app där du kan söka recept via ett öppet API och spara favoriter i Redux.
 Du kan klicka på ett specifikt recept för att se dess detaljer (övning i Routing).
@@ -15,7 +15,7 @@ Du kan klicka på ett specifikt recept för att se dess detaljer (övning i Rout
 - **Routing**: React Router för Home, Favoriter och RecipeDetail.
 - **Responsivitet**: Home, Favoriter och RecipeDetail är responsiva med enkel CSS.
 
-## Kvar att göra / Möjliga förbättringar
+## Kvar att göra 
 
 - **Filter/sort**: Skapa selectors som sorterar alfabetiskt eller filtrerar efter cuisine/difficulty.
 - **Debounce**: Skriv en enkel useDebounce hook för sökinput (t.ex. 300 ms) för bättre UX.
