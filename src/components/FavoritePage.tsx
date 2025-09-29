@@ -11,7 +11,7 @@ function FavoritesPage() {
 
   return (
     <div>
-      <Link to="/">Back to Home</Link>
+      <Link to="/">To Home</Link>
       <h2>Favorites ({favorites.length})</h2>
       <button onClick={() => dispatch(clearFavorites())}>Clear all</button>
       <ul>
@@ -19,8 +19,12 @@ function FavoritesPage() {
           <li key={f.id}>
             <div className="card">
               <Link to={`/recipe/${f.id}`}>
-                <strong>{f.title}</strong> ({f.cuisine}, {f.difficulty},{" "}
-                {f.mealType})
+                <div className="favorite-title">
+                  <strong>{f.title}</strong>
+                  <span>
+                    ({f.cuisine}, {f.difficulty}, {f.mealType})
+                  </span>
+                </div>
                 <img src={f.image} alt={f.title} width={250} />
               </Link>
               <button

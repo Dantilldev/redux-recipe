@@ -14,12 +14,12 @@ function RecipeDetail() {
     <div>
       <div style={{display: "flex"}}>
         {" "}
-        <Link to="/">Back to Home</Link>
+        <Link to="/">To Home</Link>
         <h1>RecipeDetail: {recipe.name}</h1>
-        <Link to="/favorites">Back to Favorites</Link>
+        <Link to="/favorites">To Favorites</Link>
       </div>
 
-      <div>
+      <div style={{color: "white"}}>
         <img src={recipe.image} alt={recipe.name} width={600} />
         <p>
           <strong>Cuisine:</strong> {recipe.cuisine}
@@ -29,6 +29,9 @@ function RecipeDetail() {
         </p>
         <p>
           <strong>Meal Type:</strong> {recipe.mealType.join(", ")}
+        </p>
+        <p>
+          <strong>Instructions:</strong> {recipe.instructions}
         </p>
       </div>
     </div>
